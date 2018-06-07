@@ -405,127 +405,127 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    NSUInteger count = self.filteredContactList.count;
-//    if(self.selectedSegment == 1)
-//    {
-//        count = self.filteredContactList.count;
-//    }
-//    if(count == 0)
-//    {
-//        if(![self.activityIndicator isAnimating]){
-//            [self.emptyConversationText setHidden:NO];
-//            [self setTextForEmpty];
-//        }
-//    }
-    return 0;
+    NSUInteger count = self.filteredContactList.count;
+    if(self.selectedSegment == 1)
+    {
+        count = self.filteredContactList.count;
+    }
+    if(count == 0)
+    {
+        if(![self.activityIndicator isAnimating]){
+            [self.emptyConversationText setHidden:NO];
+            [self setTextForEmpty];
+        }
+    }
+    return count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *individualCellIdentifier = @"NewContactCell";
-    ALNewContactCell *newContactCell = (ALNewContactCell *)[tableView dequeueReusableCellWithIdentifier:individualCellIdentifier];
-    NSUInteger randomIndex = random()% [self.colors count];
-    UILabel* nameIcon = (UILabel*)[newContactCell viewWithTag:101];
-    [nameIcon setTextColor:[UIColor whiteColor]];
-    [nameIcon setHidden:YES];
-    [newContactCell.contactPersonImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:nil options:SDWebImageRefreshCached];
-    newContactCell.contactPersonName.text = @"";
-    [newContactCell.contactPersonImageView setHidden:NO];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        newContactCell.contactPersonImageView.layer.cornerRadius = newContactCell.contactPersonImageView.frame.size.width/2;
-        newContactCell.contactPersonImageView.layer.masksToBounds = YES;
-    });
-    
-    [self.emptyConversationText setHidden:YES];
-    [self.contactsTableView setHidden:NO];
-    
-    @try {
-        
-        switch (self.groupOrContacts.intValue)
-        {
-            case SHOW_CONTACTS:
-            {
-                ALContact *contact = (ALContact *)[self.filteredContactList objectAtIndex:indexPath.row];
-                newContactCell.contactPersonName.text = [contact getDisplayName];
-                
-                
-                if (contact)
-                {
-                    if (contact.contactImageUrl)
-                    {
-                        [newContactCell.contactPersonImageView sd_setImageWithURL:[NSURL URLWithString:contact.contactImageUrl] placeholderImage:[ALUtilityClass getImageFromFramworkBundle:@"ic_contact_picture_holo_light.png"] options:SDWebImageRefreshCached];
-                        
-                    }
-                    else
-                    {
-                        [nameIcon setHidden:NO];
-                        [newContactCell.contactPersonImageView setImage:[ALColorUtility imageWithSize:CGRectMake(0, 0, 55, 55)
-                                                                                        WithHexString:self.colors[randomIndex]]];
-                        [newContactCell.contactPersonImageView addSubview:nameIcon];
-                        [nameIcon  setText:[ALColorUtility getAlphabetForProfileImage:[contact getDisplayName]]];
-                    }
-                    
-                    if(self.forGroup.intValue == GROUP_ADDITION && [self.contactsInGroup containsObject:contact.userId])
-                    {
-                        newContactCell.backgroundColor = [UIColor colorWithWhite:0.7 alpha:0.3];
-                        newContactCell.selectionStyle = UITableViewCellSelectionStyleNone ;
-                    }
-                    else if((self.forGroup.intValue == GROUP_CREATION || self.forGroup.intValue == BROADCAST_GROUP_CREATION) && [contact.userId isEqualToString:[ALUserDefaultsHandler getUserId]]){
-                        [self disableOrRemoveCell:newContactCell];
-                    }
-                    else
-                    {
-                        newContactCell.backgroundColor = [UIColor whiteColor];
-                        newContactCell.selectionStyle = UITableViewCellSelectionStyleGray ;
-                    }
-                    
-                    for (NSString * userID in  self.groupMembers) {
-                        if([userID isEqualToString:contact.userId]){
-                            
-                            
-                            [self.contactsTableView selectRowAtIndexPath:indexPath
-                                                                animated:YES
-                                                          scrollPosition:UITableViewScrollPositionNone];
-                            [self tableView:self.contactsTableView didSelectRowAtIndexPath:indexPath];
-                            
-                            NSLog(@"SELECTED:%@",contact.userId);
-                            
-                        }else{
-                            NSLog(@"NOT SELECTED :%@",contact.userId);
-                        }
-                    }
-                }
-            }break;
-            case SHOW_GROUP:
-            {
-                if(self.filteredContactList.count)
-                {
-                    ALChannel * channel = (ALChannel *)[self.filteredContactList objectAtIndex:indexPath.row];
-                    newContactCell.contactPersonName.text = [channel name];
-                    [newContactCell.contactPersonImageView setImage:[UIImage imageNamed:@"applozic_group_icon.png"]];
-                    NSURL * imageUrl = [NSURL URLWithString:channel.channelImageURL];
-                    if(imageUrl.path.length)
-                    {
-                        [newContactCell.contactPersonImageView sd_setImageWithURL:imageUrl placeholderImage:nil options:SDWebImageRefreshCached];
-                    }
-                    [nameIcon setHidden:YES];
-                }
-                else
-                {
-                    [self.contactsTableView setHidden:YES];
-                    [self.emptyConversationText setHidden:NO];
-                    [self setTextForEmpty];
-                }
-            }break;
-            default:
-                break;
-        }
-        
-    } @catch (NSException *exception) {
-        
-        NSLog(@"RAISED_EXP :: %@",exception.description);
-    }
+//    static NSString *individualCellIdentifier = @"NewContactCell";
+//    ALNewContactCell *newContactCell = (ALNewContactCell *)[tableView dequeueReusableCellWithIdentifier:individualCellIdentifier];
+//    NSUInteger randomIndex = random()% [self.colors count];
+//    UILabel* nameIcon = (UILabel*)[newContactCell viewWithTag:101];
+//    [nameIcon setTextColor:[UIColor whiteColor]];
+//    [nameIcon setHidden:YES];
+//    [newContactCell.contactPersonImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:nil options:SDWebImageRefreshCached];
+//    newContactCell.contactPersonName.text = @"";
+//    [newContactCell.contactPersonImageView setHidden:NO];
+//
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        newContactCell.contactPersonImageView.layer.cornerRadius = newContactCell.contactPersonImageView.frame.size.width/2;
+//        newContactCell.contactPersonImageView.layer.masksToBounds = YES;
+//    });
+//
+//    [self.emptyConversationText setHidden:YES];
+//    [self.contactsTableView setHidden:NO];
+//
+//    @try {
+//
+//        switch (self.groupOrContacts.intValue)
+//        {
+//            case SHOW_CONTACTS:
+//            {
+//                ALContact *contact = (ALContact *)[self.filteredContactList objectAtIndex:indexPath.row];
+//                newContactCell.contactPersonName.text = [contact getDisplayName];
+//
+//
+//                if (contact)
+//                {
+//                    if (contact.contactImageUrl)
+//                    {
+//                        [newContactCell.contactPersonImageView sd_setImageWithURL:[NSURL URLWithString:contact.contactImageUrl] placeholderImage:[ALUtilityClass getImageFromFramworkBundle:@"ic_contact_picture_holo_light.png"] options:SDWebImageRefreshCached];
+//
+//                    }
+//                    else
+//                    {
+//                        [nameIcon setHidden:NO];
+//                        [newContactCell.contactPersonImageView setImage:[ALColorUtility imageWithSize:CGRectMake(0, 0, 55, 55)
+//                                                                                        WithHexString:self.colors[randomIndex]]];
+//                        [newContactCell.contactPersonImageView addSubview:nameIcon];
+//                        [nameIcon  setText:[ALColorUtility getAlphabetForProfileImage:[contact getDisplayName]]];
+//                    }
+//
+//                    if(self.forGroup.intValue == GROUP_ADDITION && [self.contactsInGroup containsObject:contact.userId])
+//                    {
+//                        newContactCell.backgroundColor = [UIColor colorWithWhite:0.7 alpha:0.3];
+//                        newContactCell.selectionStyle = UITableViewCellSelectionStyleNone ;
+//                    }
+//                    else if((self.forGroup.intValue == GROUP_CREATION || self.forGroup.intValue == BROADCAST_GROUP_CREATION) && [contact.userId isEqualToString:[ALUserDefaultsHandler getUserId]]){
+//                        [self disableOrRemoveCell:newContactCell];
+//                    }
+//                    else
+//                    {
+//                        newContactCell.backgroundColor = [UIColor whiteColor];
+//                        newContactCell.selectionStyle = UITableViewCellSelectionStyleGray ;
+//                    }
+//
+//                    for (NSString * userID in  self.groupMembers) {
+//                        if([userID isEqualToString:contact.userId]){
+//
+//
+//                            [self.contactsTableView selectRowAtIndexPath:indexPath
+//                                                                animated:YES
+//                                                          scrollPosition:UITableViewScrollPositionNone];
+//                            [self tableView:self.contactsTableView didSelectRowAtIndexPath:indexPath];
+//
+//                            NSLog(@"SELECTED:%@",contact.userId);
+//
+//                        }else{
+//                            NSLog(@"NOT SELECTED :%@",contact.userId);
+//                        }
+//                    }
+//                }
+//            }break;
+//            case SHOW_GROUP:
+//            {
+//                if(self.filteredContactList.count)
+//                {
+//                    ALChannel * channel = (ALChannel *)[self.filteredContactList objectAtIndex:indexPath.row];
+//                    newContactCell.contactPersonName.text = [channel name];
+//                    [newContactCell.contactPersonImageView setImage:[UIImage imageNamed:@"applozic_group_icon.png"]];
+//                    NSURL * imageUrl = [NSURL URLWithString:channel.channelImageURL];
+//                    if(imageUrl.path.length)
+//                    {
+//                        [newContactCell.contactPersonImageView sd_setImageWithURL:imageUrl placeholderImage:nil options:SDWebImageRefreshCached];
+//                    }
+//                    [nameIcon setHidden:YES];
+//                }
+//                else
+//                {
+//                    [self.contactsTableView setHidden:YES];
+//                    [self.emptyConversationText setHidden:NO];
+//                    [self setTextForEmpty];
+//                }
+//            }break;
+//            default:
+//                break;
+//        }
+//
+//    } @catch (NSException *exception) {
+//
+//        NSLog(@"RAISED_EXP :: %@",exception.description);
+//    }
     
     
     
