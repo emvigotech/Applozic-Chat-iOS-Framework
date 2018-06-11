@@ -405,19 +405,6 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    NSUInteger count = self.filteredContactList.count;
-//    if(self.selectedSegment == 1)
-//    {
-//        count = self.filteredContactList.count;
-//    }
-//    if(count == 0)
-//    {
-//        if(![self.activityIndicator isAnimating]){
-//            [self.emptyConversationText setHidden:NO];
-//            [self setTextForEmpty];
-//        }
-//    }
-//    return count;
     return 5;
 }
 
