@@ -60,7 +60,7 @@
 /********************
 LAUNCH FOR SUB GROUP
 *********************/
-
+@property (nonatomic) BOOL fromEmail;
 @property (nonatomic, strong) ALChannel * parentChannel;
 @property (nonatomic, strong) NSMutableArray * childChannels;
 

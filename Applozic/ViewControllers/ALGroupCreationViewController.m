@@ -42,6 +42,7 @@
 @implementation ALGroupCreationViewController
 {
     UIBarButtonItem *nextContacts;
+    UIBarButtonItem *backButton;
 }
 
 - (void)viewDidLoad
@@ -53,6 +54,9 @@
     [nextContacts setTarget:self];
 
     self.navigationItem.rightBarButtonItem = nextContacts;
+    
+    backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"obse-back-arrow"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
+    self.navigationItem.leftBarButtonItem = backButton;
     
     if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft) {
         self.groupNameInput.textAlignment = NSTextAlignmentRight;
@@ -97,6 +101,14 @@
     self.descriptionTextView.userInteractionEnabled = NO;
     [self.tabBarController.tabBar setHidden:YES];
     // self.alNewContactViewController.delegateGroupCreation = self;
+}
+
+- (void)onClickBack {
+    if (_fromEmail) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 -(void)setProfileImage
@@ -150,6 +162,7 @@
                                                          bundle:[NSBundle bundleForClass:ALGroupCreationViewController.class]];
     ALNewContactsViewController *contactsVC = [storyboard instantiateViewControllerWithIdentifier:@"ALNewContactsViewController"];
     
+    contactsVC.fromEmail = _fromEmail;
     //Setting groupName and forGroup flag
     contactsVC.forGroup = [NSNumber numberWithInt:GROUP_CREATION];
     contactsVC.groupName = self.groupNameInput.text;
@@ -164,6 +177,7 @@
     }
     
     //Moving to contacts view for group member selection
+    [[NSUserDefaults standardUserDefaults] setObject:@"createGroup" forKey:@"createGroup"];
     [self.navigationController pushViewController:contactsVC animated:YES];
 }
 

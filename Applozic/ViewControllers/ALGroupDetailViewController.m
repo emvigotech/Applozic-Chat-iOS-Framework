@@ -826,7 +826,7 @@
     else if(section == 1)
     {
         UILabel * memberSectionHeaderTitle = [[UILabel alloc] init];
-        memberSectionHeaderTitle.text = NSLocalizedStringWithDefaultValue(@"groupDetailsTitle", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Participant List", @"");
+        memberSectionHeaderTitle.text = NSLocalizedStringWithDefaultValue(@"groupDetailsSectionTitle", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Participant List", @"");
         
         CGSize textSize = [memberSectionHeaderTitle.text sizeWithAttributes:@{NSFontAttributeName:memberSectionHeaderTitle.font}];
         
