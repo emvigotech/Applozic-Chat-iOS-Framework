@@ -109,10 +109,11 @@
         return actualName;
     }
     
+    
     NSString *firstLetter = [trimmed substringToIndex:1];
     NSRange whiteSpaceRange = [trimmed rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
     NSArray *listNames = [trimmed componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    
+
     if (whiteSpaceRange.location != NSNotFound)
     {
         NSString *firstLetter = [[listNames[0] substringToIndex:1] uppercaseString];
@@ -128,6 +129,9 @@
     {
         iconAlphabet = [firstLetter uppercaseString];
     }
+    
+    iconAlphabet=[iconAlphabet substringToIndex:0];
+    
     
     return iconAlphabet;
 }
