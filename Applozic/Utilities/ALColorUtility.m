@@ -126,9 +126,9 @@
     }
     else
     {
-         iconAlphabet = [firstLetter uppercaseString];
+        iconAlphabet = [firstLetter uppercaseString];
     }
-
+    
     return iconAlphabet;
 }
 
