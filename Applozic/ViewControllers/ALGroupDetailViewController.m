@@ -574,33 +574,33 @@
             
         }
         
-        if(alChannelUserX.role.intValue != ADMIN){
-            
-            [theController addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:[NSLocalizedStringWithDefaultValue(@"makeAdminText", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Make admin", @"") stringByAppendingString: @" %@"]
-                                                                     , memberNames[row]]
-                                                              style:UIAlertActionStyleDefault
-                                                            handler:^(UIAlertAction *action) {
-                                                                
-                                                                ALChannelService *channelService = [ALChannelService new];
-                                                                ALChannelUser * alChannelUsers = [ALChannelUser new];
-                                                                alChannelUsers.role = [NSNumber numberWithInt:1];
-                                                                alChannelUsers.userId = memberIds[row];
-                                                                NSMutableArray * channelUsers = [NSMutableArray new];
-                                                                [channelUsers addObject:alChannelUsers.dictionary];
-                                                                
-                                                                [channelService updateChannel:self.channelKeyID andNewName:nil
-                                                                                  andImageURL:nil orClientChannelKey:nil isUpdatingMetaData:NO metadata:nil orChildKeys:nil orChannelUsers: channelUsers withCompletion:^(NSError *error) {
-                                                                                      
-                                                                                      if(!error)
-                                                                                      {
-                                                                                          
-                                                                                          [ALUtilityClass showAlertMessage: NSLocalizedStringWithDefaultValue(@"groupSuccessFullyUpdateInfo", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Group information successfully updated", @"") andTitle:NSLocalizedStringWithDefaultValue(@"responseText", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Reponse", @"")];
-                                                                                          [self setupView];
-                                                                                          [self.tableView reloadData];
-                                                                                      }
-                                                                                  }];
-                                                            }]];
-        }
+//        if(alChannelUserX.role.intValue != ADMIN){
+//
+//            [theController addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:[NSLocalizedStringWithDefaultValue(@"makeAdminText", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Make admin", @"") stringByAppendingString: @" %@"]
+//                                                                     , memberNames[row]]
+//                                                              style:UIAlertActionStyleDefault
+//                                                            handler:^(UIAlertAction *action) {
+//
+//                                                                ALChannelService *channelService = [ALChannelService new];
+//                                                                ALChannelUser * alChannelUsers = [ALChannelUser new];
+//                                                                alChannelUsers.role = [NSNumber numberWithInt:1];
+//                                                                alChannelUsers.userId = memberIds[row];
+//                                                                NSMutableArray * channelUsers = [NSMutableArray new];
+//                                                                [channelUsers addObject:alChannelUsers.dictionary];
+//
+//                                                                [channelService updateChannel:self.channelKeyID andNewName:nil
+//                                                                                  andImageURL:nil orClientChannelKey:nil isUpdatingMetaData:NO metadata:nil orChildKeys:nil orChannelUsers: channelUsers withCompletion:^(NSError *error) {
+//
+//                                                                                      if(!error)
+//                                                                                      {
+//
+//                                                                                          [ALUtilityClass showAlertMessage: NSLocalizedStringWithDefaultValue(@"groupSuccessFullyUpdateInfo", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Group information successfully updated", @"") andTitle:NSLocalizedStringWithDefaultValue(@"responseText", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Reponse", @"")];
+//                                                                                          [self setupView];
+//                                                                                          [self.tableView reloadData];
+//                                                                                      }
+//                                                                                  }];
+//                                                            }]];
+//        }
         
         
         

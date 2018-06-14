@@ -71,9 +71,9 @@
     self.selectedSegment = 0;
     [ALUserDefaultsHandler setContactServerCallIsDone:NO];
     
-    [self.segmentControl setTitle:  NSLocalizedStringWithDefaultValue(@"contactsTitle", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"" , @"") forSegmentAtIndex:0];
+    [self.segmentControl setTitle:  NSLocalizedStringWithDefaultValue(@"contactsTitle", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Contacts" , @"") forSegmentAtIndex:0];
     
-    [self.segmentControl setTitle:  NSLocalizedStringWithDefaultValue(@"groupsTitle", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"" , @"") forSegmentAtIndex:1];
+    [self.segmentControl setTitle:  NSLocalizedStringWithDefaultValue(@"groupsTitle", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Groups" , @"") forSegmentAtIndex:1];
     
     self.contactList = [NSMutableArray new];
     [self handleFrameForOrientation];
@@ -454,7 +454,7 @@
                 {
                     if (contact.contactImageUrl)
                     {
-                        [newContactCell.contactPersonImageView sd_setImageWithURL:[NSURL URLWithString:contact.contactImageUrl] placeholderImage:[ALUtilityClass getImageFromFramworkBundle:@"ic_contact_picture_holo_light.png"] options:SDWebImageRefreshCached];
+                        [newContactCell.contactPersonImageView sd_setImageWithURL:[NSURL URLWithString:contact.contactImageUrl] placeholderImage:[ALUtilityClass getImageFromFramworkBundle:@"applozic_group_icon.png"] options:SDWebImageRefreshCached];
 
                     }
                     else
