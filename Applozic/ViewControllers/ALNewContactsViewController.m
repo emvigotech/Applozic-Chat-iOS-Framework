@@ -1088,14 +1088,10 @@
                                                 [self.navigationController popToViewController:aViewController animated:YES];
                                             }
                                         }
-                                    }
-                                    else
-                                    {
-                                        
+                                    } else {
                                         [TSMessage showNotificationWithTitle: NSLocalizedStringWithDefaultValue(@"unableToCreateGroupText", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Unable to create group. Please try again", @"") type:TSMessageNotificationTypeError];
                                         [self turnUserInteractivityForNavigationAndTableView:YES];
                                     }
-                                    
                                     [[self activityIndicator] stopAnimating];
                                 }];
     }
@@ -1121,6 +1117,10 @@
                                                                      ALSubViewController * msgSubView = aViewController;
                                                                      [msgSubView.msgView insertChannelMessage:alChannel.key];
                                                                      [self.navigationController popToViewController:aViewController animated:YES];
+                                                                 } else if ([aViewController isKindOfClass:[ALGroupCreationViewController class]]) {
+                                                                     [aViewController dismissViewControllerAnimated:YES completion:^{
+                                                                         [self.navigationController popViewControllerAnimated:YES];
+                                                                     }];
                                                                  }
                                                              }
                                                          }
