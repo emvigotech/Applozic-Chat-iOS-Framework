@@ -1117,10 +1117,6 @@
                                                                      ALSubViewController * msgSubView = aViewController;
                                                                      [msgSubView.msgView insertChannelMessage:alChannel.key];
                                                                      [self.navigationController popToViewController:aViewController animated:YES];
-                                                                 } else if ([aViewController isKindOfClass:[ALGroupCreationViewController class]]) {
-                                                                     [aViewController dismissViewControllerAnimated:YES completion:^{
-                                                                         [self.navigationController popViewControllerAnimated:YES];
-                                                                     }];
                                                                  }
                                                              }
                                                          }
@@ -1159,6 +1155,10 @@
                                              ALSubViewController * msgSubView = aViewController;
                                              [msgSubView.msgView insertChannelMessage:alChannel.key];
                                              [self.navigationController popToViewController:aViewController animated:YES];
+                                         } else if ([aViewController isKindOfClass:[ALGroupCreationViewController class]]) {
+                                             [aViewController dismissViewControllerAnimated:YES completion:^{
+                                                 [self.navigationController popViewControllerAnimated:YES];
+                                             }];
                                          }
                                      }
                                  }

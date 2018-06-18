@@ -100,6 +100,20 @@
     self.descriptionTextView.hidden = NO;
     self.descriptionTextView.userInteractionEnabled = NO;
     [self.tabBarController.tabBar setHidden:YES];
+    if([ALApplozicSettings getColorForNavigation] && [ALApplozicSettings getColorForNavigationItem])
+    {
+        //        self.navigationController.navigationBar.translucent = NO;
+        [self.navigationController.navigationBar setTitleTextAttributes: @{
+                                                                           NSForegroundColorAttributeName:[ALApplozicSettings getColorForNavigationItem],
+                                                                           NSFontAttributeName:[UIFont fontWithName:[ALApplozicSettings getFontFace]
+                                                                                                               size:18]
+                                                                           }];
+        
+        [self.navigationController.navigationBar addSubview:[ALUtilityClass setStatusBarStyle]];
+        [self.navigationController.navigationBar setBarTintColor: [ALApplozicSettings getColorForNavigation]];
+        [self.navigationController.navigationBar setTintColor: [ALApplozicSettings getColorForNavigationItem]];
+        
+    }
     // self.alNewContactViewController.delegateGroupCreation = self;
 }
 
