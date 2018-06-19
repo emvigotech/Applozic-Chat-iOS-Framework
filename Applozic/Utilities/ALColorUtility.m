@@ -130,7 +130,7 @@
         iconAlphabet = [firstLetter uppercaseString];
     }
     
-    iconAlphabet=[iconAlphabet substringToIndex:0];
+   
     
     
     return iconAlphabet;
