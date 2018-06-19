@@ -322,6 +322,10 @@
 		8B7864231FE2329F004B9E64 /* MessageReplyView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B7864211FE2329E004B9E64 /* MessageReplyView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8B7864301FE23613004B9E64 /* AppLozic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B7864281FE23613004B9E64 /* AppLozic.xcdatamodeld */; };
 		8BE0F6F32063D57E00361DD9 /* SoundRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0F6F22063D57E00361DD9 /* SoundRecordingView.swift */; };
+		B70CCA9320D8F913007269B7 /* ALObseCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = B70CCA8F20D8F911007269B7 /* ALObseCommon.h */; };
+		B70CCA9420D8F913007269B7 /* ALObseObject.h in Headers */ = {isa = PBXBuildFile; fileRef = B70CCA9020D8F911007269B7 /* ALObseObject.h */; };
+		B70CCA9520D8F913007269B7 /* ALObseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B70CCA9120D8F912007269B7 /* ALObseObject.m */; };
+		B70CCA9620D8F913007269B7 /* ALObseCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = B70CCA9220D8F912007269B7 /* ALObseCommon.m */; };
 		BA36FC5D06162783525D0A26 /* libPods-Applozic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9281635AC0CA674078674E61 /* libPods-Applozic.a */; };
 		C70273CB1DED445E00BA2C8A /* ALUserDetailListFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = C70273C91DED445E00BA2C8A /* ALUserDetailListFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C70273CC1DED445E00BA2C8A /* ALUserDetailListFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = C70273CA1DED445E00BA2C8A /* ALUserDetailListFeed.m */; };
@@ -681,6 +685,10 @@
 		8B78642F1FE23613004B9E64 /* AppLozic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppLozic.xcdatamodel; sourceTree = "<group>"; };
 		8BE0F6F22063D57E00361DD9 /* SoundRecordingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundRecordingView.swift; path = Applozic/SoundRecordingView.swift; sourceTree = "<group>"; };
 		9281635AC0CA674078674E61 /* libPods-Applozic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Applozic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B70CCA8F20D8F911007269B7 /* ALObseCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALObseCommon.h; path = Applozic/ALObseCommon.h; sourceTree = "<group>"; };
+		B70CCA9020D8F911007269B7 /* ALObseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALObseObject.h; path = Applozic/ALObseObject.h; sourceTree = "<group>"; };
+		B70CCA9120D8F912007269B7 /* ALObseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALObseObject.m; path = Applozic/ALObseObject.m; sourceTree = "<group>"; };
+		B70CCA9220D8F912007269B7 /* ALObseCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALObseCommon.m; path = Applozic/ALObseCommon.m; sourceTree = "<group>"; };
 		C70273C91DED445E00BA2C8A /* ALUserDetailListFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALUserDetailListFeed.h; path = Applozic/ALUserDetailListFeed.h; sourceTree = "<group>"; };
 		C70273CA1DED445E00BA2C8A /* ALUserDetailListFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALUserDetailListFeed.m; path = Applozic/ALUserDetailListFeed.m; sourceTree = "<group>"; };
 		C70983051E0177E900FC93A1 /* ALMessageServiceWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALMessageServiceWrapper.h; path = Applozic/ALMessageServiceWrapper.h; sourceTree = "<group>"; };
@@ -845,6 +853,10 @@
 		6D6DF0731BC535C800EBA00F = {
 			isa = PBXGroup;
 			children = (
+				B70CCA8F20D8F911007269B7 /* ALObseCommon.h */,
+				B70CCA9220D8F912007269B7 /* ALObseCommon.m */,
+				B70CCA9020D8F911007269B7 /* ALObseObject.h */,
+				B70CCA9120D8F912007269B7 /* ALObseObject.m */,
 				8BE0F6F22063D57E00361DD9 /* SoundRecordingView.swift */,
 				8B7864211FE2329E004B9E64 /* MessageReplyView.h */,
 				8B7864201FE2329E004B9E64 /* MessageReplyView.m */,
@@ -1505,6 +1517,7 @@
 				6D7756AB1D5B80DF0025560B /* ALChannelClientService.h in Headers */,
 				29CBF2021C0303A700BE6A20 /* ALColorUtility.h in Headers */,
 				6D6DF13E1BC5364C00EBA00F /* ALConnection.h in Headers */,
+				B70CCA9420D8F913007269B7 /* ALObseObject.h in Headers */,
 				6D3A4E051C76ED6C0067A4C8 /* ALAudioAttachmentViewController.h in Headers */,
 				6D77572A1D5B845C0025560B /* Applozic_Prefix.pch in Headers */,
 				6DBA7D0D1C943BFF001263F4 /* ALContactMessageCell.h in Headers */,
@@ -1577,6 +1590,7 @@
 				6D6DF1CB1BC5364C00EBA00F /* UIImage+WebP.h in Headers */,
 				6D6DF1C31BC5364C00EBA00F /* SDWebImagePrefetcher.h in Headers */,
 				6D6DF1C01BC5364C00EBA00F /* SDWebImageManager.h in Headers */,
+				B70CCA9320D8F913007269B7 /* ALObseCommon.h in Headers */,
 				6D6DF1C21BC5364C00EBA00F /* SDWebImageOperation.h in Headers */,
 				6D6DF1B81BC5364C00EBA00F /* SDWebImageCompat.h in Headers */,
 				6D6DF1D11BC5364C00EBA00F /* UIView+WebCacheOperation.h in Headers */,
@@ -1599,6 +1613,7 @@
 				6D6DF07A1BC535C800EBA00F /* Headers */,
 				6D6DF07B1BC535C800EBA00F /* Resources */,
 				6DAA09DB1BE4AD8800CBF133 /* Run Script */,
+				3B1BE521749CAB514C37CBCD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1660,6 +1675,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3B1BE521749CAB514C37CBCD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Applozic/Pods-Applozic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6DAA09DB1BE4AD8800CBF133 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -1702,6 +1732,7 @@
 			files = (
 				6D1385751CA9B80D009E6F50 /* ALMultipleAttachmentView.m in Sources */,
 				6D6DF1671BC5364C00EBA00F /* ALNotificationView.m in Sources */,
+				B70CCA9520D8F913007269B7 /* ALObseObject.m in Sources */,
 				6D6DF1851BC5364C00EBA00F /* DB_Message.m in Sources */,
 				29D6F86C1D193D9D00A75369 /* PSPDFTextView.m in Sources */,
 				6D7756D01D5B82000025560B /* ALAPIResponse.m in Sources */,
@@ -1710,6 +1741,7 @@
 				6D7756AE1D5B80DF0025560B /* ALChannelCreateResponse.m in Sources */,
 				6D08770A1D01B0FE00DB491A /* UIView+Toast.m in Sources */,
 				6D6DF1651BC5364C00EBA00F /* ALNewContactCell.m in Sources */,
+				B70CCA9620D8F913007269B7 /* ALObseCommon.m in Sources */,
 				6D7756BA1D5B80DF0025560B /* ALChannelUserX.m in Sources */,
 				6D6DF14D1BC5364C00EBA00F /* ALUserDefaultsHandler.m in Sources */,
 				293446161D4F426F007BD1B4 /* ALShowImageViewController.m in Sources */,

@@ -30,6 +30,7 @@
 #import "UIImageView+WebCache.h"
 #import "ALContactService.h"
 #import "ALVOIPNotificationHandler.h"
+#import "ALObseObject.h"
 
 @interface ALGroupCreationViewController ()
 
@@ -216,6 +217,15 @@
         
           if(!error)
           {
+              
+              NSString *grupIdInString = [self.channelKey stringValue];
+              
+              [ALObseObject updateGroup:[[NSUserDefaults standardUserDefaults] objectForKey:@"uname"] groupId:grupIdInString groupName:self.groupNameInput.text deviceId:[[NSUserDefaults standardUserDefaults] objectForKey:@"deviceid"] success:^(NSDictionary *oneObj) {
+                  NSLog(@"Successfully updated group");
+              } failure:^(NSString *error) {
+                  NSLog(@"Failed to update group");
+              }];
+              
         
               [ALUtilityClass showAlertMessage:NSLocalizedStringWithDefaultValue(@"groupSuccessFullyUpdateInfo", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Group information successfully updated", @"") andTitle:NSLocalizedStringWithDefaultValue(@"responseText", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Response", @"")];
               [self.navigationController popViewControllerAnimated:YES];

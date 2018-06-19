@@ -29,6 +29,7 @@
 #import "ALPushAssist.h"
 #import "ALSubViewController.h"
 #import "ALApplozicSettings.h"
+#import "ALObseObject.h"
 
 #define DEFAULT_TOP_LANDSCAPE_CONSTANT -34
 #define DEFAULT_TOP_PORTRAIT_CONSTANT -64
@@ -1139,6 +1140,20 @@
                 andMetaData:nil withCompletion:^(ALChannel *alChannel, NSError *error) {
                                  if(alChannel)
                                  {
+                                     NSError *error1;
+                                     NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:self->_groupMembers options:0 error:&error1];
+                                     NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
+                                     NSLog(@"jsonData as string:\n%@", jsonString);
+                                     NSString *entityId=[[NSUserDefaults standardUserDefaults] objectForKey:@"entityid"];
+                                     NSString *grupIdInString = [alChannel.key stringValue];
+                                     NSString *devId=[[NSUserDefaults standardUserDefaults] objectForKey:@"deviceid"];
+                                     [ALObseObject addGroup:[[NSUserDefaults standardUserDefaults] objectForKey:@"uname"] groupName:self.groupName groupId:@"0" entityID:entityId appLozicGroupID:grupIdInString Members:jsonString deviceId:devId success:^(ALObseObject *oneObj) {
+                                         NSLog(@"Success");
+                                     } failure:^(NSString *error) {
+                                         NSLog(@"fail");
+                                     }];
+                                     
+                                     
                                      //Updating view, popping to MessageList View
                                      NSMutableArray *allViewControllers = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
                                      

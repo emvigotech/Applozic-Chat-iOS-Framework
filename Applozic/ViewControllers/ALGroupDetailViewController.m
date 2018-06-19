@@ -18,6 +18,7 @@
 #import "ALGroupCreationViewController.h"
 #import "ALPushAssist.h"
 #import "ALChannelUser.h"
+#import "ALObseObject.h"
 
 
 @interface ALGroupDetailViewController () <ALGroupInfoDelegate>
@@ -351,6 +352,12 @@
                       withMessage:NSLocalizedStringWithDefaultValue(@"areYouSureText", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Are you sure?", @"")
                  otherButtonTitle: NSLocalizedStringWithDefaultValue(@"yes", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Yes", @"")
              ];
+            NSString *groupId = [_channelKeyID stringValue];
+            [ALObseObject deleteGroupMember:[[NSUserDefaults standardUserDefaults] objectForKey:@"uname"] groupUniqueId:groupId deviceId:[[NSUserDefaults standardUserDefaults] objectForKey:@"deviceid"] success:^(NSDictionary *oneObj) {
+                NSLog(@"suc %@",oneObj);
+            } failure:^(NSString *error) {
+                NSLog(@"fail ");
+            }];
             
         }break;
             

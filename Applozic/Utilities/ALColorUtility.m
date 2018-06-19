@@ -131,8 +131,6 @@
     }
     
    
-    
-    
     return iconAlphabet;
 }
 
