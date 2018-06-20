@@ -7,7 +7,7 @@
 
 #import "ALObseObject.h"
 #import "ALObseCommon.h"
-#import "AFURLSessionManager.h"
+#import <AFNetworking/AFURLSessionManager.h>
 #import <AFNetworking/AFNetworking.h>
 
 @implementation ALObseObject
